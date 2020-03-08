@@ -19,9 +19,14 @@ public class PokemonSaveService {
      * Should save new pokemon
      */
     public void savePokemon(PokemonRequest request) {
-        repository.save(PokemonEntity.builder()
+
+        // montando um objeto para salvar no banco
+        PokemonEntity pokemonSalvar = PokemonEntity.builder()
                 .idPokemon(request.getIdPokemon())
                 .nomePokemon(request.getNomePokemon())
-                .build());
+                .build();
+
+        // salvando o objeto
+        repository.save(pokemonSalvar);
     }
 }

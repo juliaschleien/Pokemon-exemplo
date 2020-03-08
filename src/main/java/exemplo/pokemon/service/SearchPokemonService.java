@@ -22,14 +22,25 @@ public class SearchPokemonService {
      * Should search all pokemon
      */
     public List<PokemonResponse> getPokemon() {
-        List<PokemonEntity> pokemonResponse = (List<PokemonEntity>) repository.findAll();
 
+        //procurando pokemons
+        List<PokemonEntity> pokemonResponseList = (List<PokemonEntity>) repository.findAll();
+
+        //criando lista para retornar
         List<PokemonResponse> response = new ArrayList<>();
 
-        pokemonResponse.forEach(pokemon -> response.add(PokemonResponse.builder()
-                .idPokemon(pokemon.getIdPokemon())
-                .nomePokemon(pokemon.getNomePokemon())
-                .build()));
+        //percorrendo a lista de retorno do banco
+        pokemonResponseList.forEach(pokemon -> {
+
+            //criando objeto para retornar
+            PokemonResponse pokemonResponse = PokemonResponse.builder()
+                    .idPokemon(pokemon.getIdPokemon())
+                    .nomePokemon(pokemon.getNomePokemon())
+                    .build();
+
+            //adc retorno
+            response.add(pokemonResponse);
+        });
 
         return response;
     }
