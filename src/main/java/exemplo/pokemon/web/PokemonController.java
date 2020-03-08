@@ -14,6 +14,9 @@ import java.util.List;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 
+/**
+ * Used to expose application
+ */
 @RestController
 @RequestMapping(value = "/pokemon")
 @AllArgsConstructor

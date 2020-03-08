@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ * Used to map response bodies
+ */
 @Getter
 @Builder
 @AllArgsConstructor

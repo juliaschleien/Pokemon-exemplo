@@ -2,6 +2,9 @@ package exemplo.pokemon.request;
 
 import lombok.*;
 
+/**
+ * Used to map request bodies
+ */
 @Getter
 @Builder
 @AllArgsConstructor

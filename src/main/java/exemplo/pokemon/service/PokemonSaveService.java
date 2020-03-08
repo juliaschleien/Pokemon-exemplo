@@ -6,6 +6,9 @@ import exemplo.pokemon.request.PokemonRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * Used to centralize business rule
+ */
 @Service
 @AllArgsConstructor
 public class PokemonSaveService {

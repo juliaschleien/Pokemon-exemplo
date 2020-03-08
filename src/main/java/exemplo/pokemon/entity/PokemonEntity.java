@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Used to map database structure
+ */
 @Entity
 @Getter
 @Builder
