@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Service
 @AllArgsConstructor
-public class SearchPokemonService {
+public class PokemonSearchService {
 
     public PokemonRepository repository;
 
@@ -36,6 +36,9 @@ public class SearchPokemonService {
             PokemonResponse pokemonResponse = PokemonResponse.builder()
                     .idPokemon(pokemon.getIdPokemon())
                     .nomePokemon(pokemon.getNomePokemon())
+                    .vidaPokemon(pokemon.getVidaPokemon())
+                    .poderPokemon(pokemon.getPoderPokemon())
+                    .tipoPokemon(pokemon.getTipoPokemon())
                     .build();
 
             //adc retorno

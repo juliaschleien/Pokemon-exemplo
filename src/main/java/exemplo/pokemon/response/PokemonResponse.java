@@ -18,4 +18,10 @@ public class PokemonResponse {
 
     private String nomePokemon;
 
+    private String tipoPokemon;
+
+    private Long vidaPokemon;
+
+    private Long poderPokemon;
+
 }

@@ -20,8 +20,17 @@ public class PokemonEntity {
 
     @Id
     @Column(name = "ID_POKEMON")
-    private long idPokemon;
+    private Long idPokemon;
 
     @Column(name = "NOME_POKEMON")
     private String nomePokemon;
+
+    @Column(name = "VIDA_POKEMON")
+    private Long vidaPokemon;
+
+    @Column(name = "PODER_POKEMON")
+    private Long poderPokemon;
+
+    @Column(name = "TIPO_POKEMON")
+    private String tipoPokemon;
 }

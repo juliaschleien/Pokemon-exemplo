@@ -2,16 +2,13 @@ package exemplo.pokemon.web;
 
 import exemplo.pokemon.request.PokemonRequest;
 import exemplo.pokemon.response.PokemonResponse;
-import exemplo.pokemon.service.PokemonSaveService;
-import exemplo.pokemon.service.PokemonUpdateService;
-import exemplo.pokemon.service.SearchPokemonService;
+import exemplo.pokemon.service.*;
 import javassist.NotFoundException;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
+import lombok.Getter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.Null;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.*;
@@ -24,21 +21,25 @@ import static org.springframework.http.HttpStatus.*;
 @AllArgsConstructor
 public class PokemonController {
 
-    public PokemonSaveService saveService;
+    private PokemonSaveService pokemonSaveService;
 
-    public SearchPokemonService searchPokemonService;
+    private PokemonSearchService pokemonSearchService;
 
-    public PokemonUpdateService pokemonUpdateService;
+    private PokemonUpdateService pokemonUpdateService;
+
+    private PokemonDeleteService pokemonDeleteService;
+
+    private PokemonFightService pokemonFightService;
 
     @PostMapping
     public ResponseEntity<Void> savePokemon(@RequestBody PokemonRequest request) {
-        saveService.savePokemon(request);
+        pokemonSaveService.savePokemon(request);
         return new ResponseEntity<>(null, CREATED);
     }
 
     @GetMapping
     public ResponseEntity<List<PokemonResponse>> getPokemon() {
-        return new ResponseEntity<>(searchPokemonService.getPokemon(), OK);
+        return new ResponseEntity<>(pokemonSearchService.getPokemon(), OK);
     }
 
     @PutMapping
@@ -46,4 +47,21 @@ public class PokemonController {
         pokemonUpdateService.updatePokemon(request);
         return new ResponseEntity<>(null, NO_CONTENT);
     }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deletePokemon(@RequestBody PokemonRequest request) {
+        pokemonDeleteService.deletePokemon(request);
+        return new ResponseEntity<>(null, NO_CONTENT);
+    }
+
+    @GetMapping("/battle")
+    public ResponseEntity<PokemonResponse> fightPokemon(@RequestParam Long pokemonOne, @RequestParam Long pokemonTwo){
+        return new ResponseEntity<>(pokemonFightService.fightPokemon(pokemonOne, pokemonTwo), OK);
+
+    }
+
+
+
+
+
 }

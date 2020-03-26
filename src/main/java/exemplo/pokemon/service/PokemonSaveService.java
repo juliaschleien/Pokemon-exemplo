@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class PokemonSaveService {
 
-    public PokemonRepository repository;
+    private PokemonRepository repository;
 
     /**
      * Should save new pokemon
@@ -24,6 +24,9 @@ public class PokemonSaveService {
         PokemonEntity pokemonSalvar = PokemonEntity.builder()
                 .idPokemon(request.getIdPokemon())
                 .nomePokemon(request.getNomePokemon())
+                .vidaPokemon(request.getVidaPokemon())
+                .tipoPokemon(request.getTipoPokemon())
+                .poderPokemon(request.getPoderPokemon())
                 .build();
 
         // salvando o objeto

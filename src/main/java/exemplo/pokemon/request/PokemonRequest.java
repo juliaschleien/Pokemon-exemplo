@@ -2,6 +2,8 @@ package exemplo.pokemon.request;
 
 import lombok.*;
 
+import javax.persistence.Column;
+
 /**
  * Used to map request bodies
  */
@@ -15,4 +17,9 @@ public class PokemonRequest {
 
     private String nomePokemon;
 
+    private Long vidaPokemon;
+
+    private Long poderPokemon;
+
+    private String tipoPokemon;
 }
